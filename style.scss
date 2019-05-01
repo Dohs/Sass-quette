@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'aniron';
+  src: url(assets/aniron/anirm___.ttf);
+  font-stretch: normal;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'tangwar';
+  src: url(assets/tangwar/tnganb.ttf) ;
+  font-stretch: normal;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'party';
+  src: url(assets/nancy/party.ttf) ;
+  font-stretch: normal;
+  font-weight: normal;
+  font-style: normal;
+}
+$mainBg: url('assets/bg_light.png');
+$mainColor: #FF5F00;
+$primaryColor: gold;
+$secondaryColor: black;
+$mainPolice: Arial;
+
+.container{
+  background-image:$mainBg;
+  padding: 0;
+}
+.pied{
+  background-color: $mainColor;
+  padding: 2rem;
+}
+.light{
+  background-color: transparent;
+}
+footer{
+  li{
+    list-style: none;
+    font-family: aniron;
+    a{
+      color: white;
+      &:hover{
+        color: #FFFFFF;
+        text-decoration: none;
+        border-bottom: 3px solid #FFFFFF ;
+      }
+    }
+  }
+}
+
+h2 {
+  font-family: aniron;
+}
+
+nav {
+  background-color: $mainColor;
+  font-family: aniron;
+
+  .navbar-collapse {
+    justify-content: end;
+
+    ul {
+      li {
+        a {
+          color: #FFFFFF !important;
+
+          &:hover {
+            color: #FFFFFF !important;
+            border-bottom: 3px solid;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin border-radius($radius,$sizeCircle,$borderColor) {
+  border-radius: $radius;
+  width: $sizeCircle;
+  height: $sizeCircle;
+  border: $sizeCircle/13 solid $borderColor;
+  filter: drop-shadow($sizeCircle/40 $sizeCircle/40 $sizeCircle/50 darken($borderColor,20%));
+  background: transparent;
+}
+
+.circle {
+  @include border-radius(50%, 50px, $mainColor);
+
+}
+
+.circle2 {
+  @include border-radius(50%, 200px, $primaryColor);
+}
+
+@for $i from 3 through 8 {
+  .circle#{$i} {
+    @include border-radius(50%, 12px*$i, $secondaryColor);
+    margin-left: -3px*$i;
+    margin-top: -3px*$i;
+  }
+}
